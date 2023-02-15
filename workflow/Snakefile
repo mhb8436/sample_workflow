@@ -24,3 +24,4 @@ include: f'{RULES_DIR}/plot.smk'
 rule all:
 	input:
 		PLOT_FILE
+	group: "sample"

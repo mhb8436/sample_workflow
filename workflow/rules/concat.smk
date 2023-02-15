@@ -1,10 +1,10 @@
 rule concat:
 	input:
-		local(COUNT_FILE)
+		COUNT_FILE
 	output:
-		local(CONCAT_FILE)
+		CONCAT_FILE
 	conda:
 		f'{ENVS_DIR}/concat.yaml'
-	group: "one"
+	group: "sample"
 	script:
 		CONCAT_SCRIPT
