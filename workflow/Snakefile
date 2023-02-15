@@ -25,4 +25,4 @@ include: f'{RULES_DIR}/plot.smk'
 
 rule all:
 	input:
-		PLOT_OUTPUT_FILE
+		PLOT_FILE
