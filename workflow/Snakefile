@@ -9,7 +9,7 @@ ENVS_DIR = '../envs'
 SCRIPTS_DIR = '../scripts'
 
 COUNT_INPUT_FILES = expand("{DATA_DIR}/{filename}.txt",DATA_DIR=DATA_DIR, filename=FILENAMES)
-COUNT_FILE = expand("temp/wc_{filename}.txt", filename=FILENAMES)
+COUNT_FILE = f'temp/wc_total.txt'
 
 CONCAT_FILE = f'temp/wc_all.csv'
 CONCAT_SCRIPT = f'{SCRIPTS_DIR}/concat.py'
