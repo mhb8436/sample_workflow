@@ -1,6 +1,6 @@
 rule concat:
 	input:
-		COUNT_FILE
+		local(COUNT_FILE)
 	output:
 		CONCAT_FILE
 	conda:
