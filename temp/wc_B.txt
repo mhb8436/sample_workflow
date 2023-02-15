@@ -1,3 +1,0 @@
-       1 mindera-mlops-prod-bucket/input_folders/TestProject/workflow3/AN10001/A.txt
-       5 mindera-mlops-prod-bucket/input_folders/TestProject/workflow3/AN10001/B.txt
-       6 total

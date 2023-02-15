@@ -1,5 +1,0 @@
-Config file config/config.yaml is extended by additional config specified via the command line.
-CreateRuleException in file /Users/mhb8436/Workspaces/snake/sample/sample_workflow/workflow/rules/concat.smk, line 1:
-The name count is already used by another rule
-  File "/Users/mhb8436/Workspaces/snake/sample/sample_workflow/workflow/Snakefile", line 22, in <module>
-  File "/Users/mhb8436/Workspaces/snake/sample/sample_workflow/workflow/rules/concat.smk", line 1, in <module>
