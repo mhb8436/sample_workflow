@@ -9,14 +9,14 @@ ENVS_DIR = '../envs'
 SCRIPTS_DIR = '../scripts'
 
 COUNT_INPUT_FILES = expand("{DATA_DIR}/{filename}.txt",DATA_DIR=DATA_DIR, filename=FILENAMES)
-COUNT_OUTPUT_FILE = expand('{DATA_DIR}/temp/wc_{filename}.txt',DATA_DIR=DATA_DIR, filename=FILENAMES)
+COUNT_FILE = expand("{DATA_DIR}/temp/wc_{filename}.txt",DATA_DIR=DATA_DIR, filename=FILENAMES)
 
-CONCAT_INPUT_FILES = expand('{DATA_DIR}/temp/wc_{filename}.txt',DATA_DIR=DATA_DIR, filename=FILENAMES)
-CONCAT_OUTPUT_FILE = f'temp/wc_all.csv'
+# CONCAT_INPUT_FILES = expand("{DATA_DIR}/temp/wc_{filename}.txt",DATA_DIR=DATA_DIR, filename=FILENAMES)
+CONCAT_FILE = f'temp/wc_all.csv'
 CONCAT_SCRIPT = f'{SCRIPTS_DIR}/concat.py'
 
-PLOT_INPUT_FILES = f'temp/wc_all.csv'
-PLOT_OUTPUT_FILE = expand("{OUTPUTS_DIR}/wc_all.png", OUTPUTS_DIR=OUTPUTS_DIR)
+# PLOT_INPUT_FILES = f'temp/wc_all.csv'
+PLOT_FILE = expand("{OUTPUTS_DIR}/wc_all.png", OUTPUTS_DIR=OUTPUTS_DIR)
 PLOT_SCRIPT = f'{SCRIPTS_DIR}/plot.py'
 
 include: f'{RULES_DIR}/count.smk'

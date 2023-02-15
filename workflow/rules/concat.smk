@@ -1,8 +1,8 @@
 rule concat:
 	input:
-		CONCAT_INPUT_FILES
+		COUNT_FILE
 	output:
-		CONCAT_OUTPUT_FILE
+		CONCAT_FILE
 	conda:
 		f'{ENVS_DIR}/concat.yaml'
 	group: "one"
