@@ -2,7 +2,7 @@ rule count:
 	input:
 		COUNT_INPUT_FILES
 	output:
-		COUNT_FILE
+		expand("temp/wc_{filename}.txt",filename=FILENAMES)
 	group: "one"
 	shell:
 		"wc -w {input} > {output}"

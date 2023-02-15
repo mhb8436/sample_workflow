@@ -1,6 +1,6 @@
 rule concat:
 	input:
-		COUNT_FILE
+		expand("temp/wc_{filename}.txt",filename=FILENAMES)
 	output:
 		CONCAT_FILE
 	conda:
