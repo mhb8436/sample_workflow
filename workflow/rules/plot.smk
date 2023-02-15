@@ -1,6 +1,6 @@
 rule plot:
 	input:
-		PLOT_INPUT_FILES
+		local(PLOT_INPUT_FILES)
 	output:
 		PLOT_OUTPUT_FILE
 	conda:
