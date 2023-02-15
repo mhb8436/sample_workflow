@@ -1,6 +1,6 @@
 configfile: "config/config.yaml"
 
-FILENAMES = ['A']
+FILENAMES = ['A','B','C']
 DATA_DIR = config['data_dir']
 OUTPUTS_DIR = config['outputs_dir']
 
