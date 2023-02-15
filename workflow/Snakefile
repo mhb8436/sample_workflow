@@ -1,0 +1,29 @@
+configfile: "config/config.yaml"
+
+FILENAMES = ['A','B','C']
+DATA_DIR = config['data_dir']
+OUTPUTS_DIR = config['outputs_dir']
+
+RULES_DIR = 'rules'
+ENVS_DIR = '../envs'
+SCRIPTS_DIR = '../scripts'
+
+PLOT_FILE = f''
+COUNT_INPUT_FILES = expand("{DATA_DIR}/{filename}.txt",DATA_DIR=DATA_DIR, filename=FILENAMES)
+COUNT_OUTPUT_FILE = expand("temp/wc_{filename}.txt", filename=FILENAMES)
+
+CONCAT_INPUT_FILES = expand("temp/wc_{filename}.txt",filename=FILENAMES)
+CONCAT_OUTPUT_FILE = f'temp/wc_all.csv'
+CONCAT_SCRIPT = f'{SCRIPTS_DIR}/concat.py'
+
+PLOT_INPUT_FILES = f'temp/wc_all.csv'
+PLOT_OUTPUT_FILE = expand("{OUTPUTS_DIR}/wc_all.png", OUTPUTS_DIR=OUTPUTS_DIR)
+PLOT_SCRIPT = f'{SCRIPTS_DIR}/plot.py'
+
+include: f'{RULES_DIR}/count.smk'
+include: f'{RULES_DIR}/concat.smk'
+include: f'{RULES_DIR}/plot.smk'
+
+rule all:
+	input:
+		PLOT_OUTPUT_FILE

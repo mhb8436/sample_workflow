@@ -1,0 +1,41 @@
+Config file config/config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using 779792627677.dkr.ecr.us-west-2.amazonaws.com/mindera-mlops-prod-snakemake:0.4 for Kubernetes jobs.
+Using shell: /bin/bash
+Provided cloud nodes: 8
+Job stats:
+job       count    min threads    max threads
+------  -------  -------------  -------------
+all           1              1              1
+concat        1              1              1
+plot          1              1              1
+total         3              1              1
+
+Select jobs to execute...
+
+[Wed Feb 15 09:23:03 2023]
+rule concat:
+    input: mindera-mlops-prod-bucket/temp/wc_A.txt, mindera-mlops-prod-bucket/temp/wc_B.txt
+    output: mindera-mlops-prod-bucket/temp/wc_all.csv
+    jobid: 2
+    reason: Code has changed since last execution
+    resources: tmpdir=<TBD>
+
+Get status with:
+kubectl describe pod snakejob-e14f7ebc-f00b-58ef-94f6-9d8a66ef1860
+kubectl logs snakejob-e14f7ebc-f00b-58ef-94f6-9d8a66ef1860
+[Wed Feb 15 09:23:19 2023]
+Error in rule concat:
+    message: For details, please issue:
+kubectl describe pod snakejob-e14f7ebc-f00b-58ef-94f6-9d8a66ef1860
+kubectl logs snakejob-e14f7ebc-f00b-58ef-94f6-9d8a66ef1860
+    jobid: 2
+    input: mindera-mlops-prod-bucket/temp/wc_A.txt, mindera-mlops-prod-bucket/temp/wc_B.txt
+    output: mindera-mlops-prod-bucket/temp/wc_all.csv
+    jobid: snakejob-e14f7ebc-f00b-58ef-94f6-9d8a66ef1860
+
+Removing output files of failed job concat since they might be corrupted:
+mindera-mlops-prod-bucket/temp/wc_all.csv
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-02-15T092254.554357.snakemake.log

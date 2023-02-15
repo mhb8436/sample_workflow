@@ -1,0 +1,4 @@
+Config file config/config.yaml is extended by additional config specified via the command line.
+NameError in file /Users/mhb8436/Workspaces/snake/sample/sample_workflow/workflow/Snakefile, line 12:
+name 'filename' is not defined
+  File "/Users/mhb8436/Workspaces/snake/sample/sample_workflow/workflow/Snakefile", line 12, in <module>

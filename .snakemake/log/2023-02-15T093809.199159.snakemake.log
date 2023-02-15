@@ -1,0 +1,55 @@
+Config file config/config.yaml is extended by additional config specified via the command line.
+Building DAG of jobs...
+Using 779792627677.dkr.ecr.us-west-2.amazonaws.com/mindera-mlops-prod-snakemake:0.6 for Kubernetes jobs.
+Using shell: /bin/bash
+Provided cloud nodes: 8
+Job stats:
+job       count    min threads    max threads
+------  -------  -------------  -------------
+all           1              1              1
+concat        1              1              1
+plot          1              1              1
+total         3              1              1
+
+Select jobs to execute...
+
+[Wed Feb 15 09:38:14 2023]
+rule concat:
+    input: mindera-mlops-prod-bucket/temp/wc_A.txt, mindera-mlops-prod-bucket/temp/wc_B.txt
+    output: mindera-mlops-prod-bucket/temp/wc_all.csv
+    jobid: 2
+    reason: Code has changed since last execution
+    resources: tmpdir=<TBD>
+
+Get status with:
+kubectl describe pod snakejob-331e4c35-8392-5451-bfe9-94b6588228ac
+kubectl logs snakejob-331e4c35-8392-5451-bfe9-94b6588228ac
+[Wed Feb 15 09:39:04 2023]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Wed Feb 15 09:39:04 2023]
+rule plot:
+    input: mindera-mlops-prod-bucket/temp/wc_all.csv
+    output: mindera-mlops-prod-bucket/output_folders/TestProject/workflow3/rnaseq_data/outputs/test/wc_all.png
+    jobid: 1
+    reason: Missing output files: mindera-mlops-prod-bucket/output_folders/TestProject/workflow3/rnaseq_data/outputs/test/wc_all.png; Input files updated by another job: mindera-mlops-prod-bucket/temp/wc_all.csv
+    resources: tmpdir=<TBD>
+
+Get status with:
+kubectl describe pod snakejob-001ce981-0d41-51ae-b89a-98d787f253a5
+kubectl logs snakejob-001ce981-0d41-51ae-b89a-98d787f253a5
+[Wed Feb 15 09:39:13 2023]
+Error in rule plot:
+    message: For details, please issue:
+kubectl describe pod snakejob-001ce981-0d41-51ae-b89a-98d787f253a5
+kubectl logs snakejob-001ce981-0d41-51ae-b89a-98d787f253a5
+    jobid: 1
+    input: mindera-mlops-prod-bucket/temp/wc_all.csv
+    output: mindera-mlops-prod-bucket/output_folders/TestProject/workflow3/rnaseq_data/outputs/test/wc_all.png
+    jobid: snakejob-001ce981-0d41-51ae-b89a-98d787f253a5
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-02-15T093809.199159.snakemake.log
